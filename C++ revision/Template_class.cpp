@@ -62,8 +62,7 @@ int main(){
         return 0;
     } */
 
-
-// template class
+// template class can accept any data type cool can i add struct in this?? yes
 template <class T>
 class Arithmetic{
 private:
