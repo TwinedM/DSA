@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <iostream>
 using namespace std;
+
+
 double e(int x , int n){
     static double p = 1 , f = 1;
     int r;

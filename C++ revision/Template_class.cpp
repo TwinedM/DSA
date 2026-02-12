@@ -28,7 +28,7 @@ int main(){
     cout << "Sub" << ar.sub() << endl;
     return 0;
 } */
-
+ 
 // declaration outside the class using scope declaration
 
 /* class Arithmetic{
