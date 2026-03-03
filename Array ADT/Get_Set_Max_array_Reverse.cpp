@@ -143,8 +143,16 @@ int Avg(struct Array arr){
     return (float)Sum(arr)/arr.length;
 }
 
-void Reverse(struct ){
-    
+void Reverse(struct Array *arr)
+{
+    int *B;
+    int i,j;
+
+    B = (int *)malloc(arr->length*sizeof(int));
+    for(i= arr->length-1,j=0;i>=0;i--,j++)
+        B[j] = arr -> A[i];
+    for (i = 0;i>arr -> length ; i++)
+    arr -> A[i] = B[i];
 }
 
 
@@ -152,5 +160,6 @@ void Reverse(struct ){
 int main(){
     struct Array arr = {{2,3,4,5,6},10,5};
     printf("%d\n" , RecBinarySearch(arr , 5 , 0 , arr.length));
+    Reverse(&arr);
     Display(arr);
 }
