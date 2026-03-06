@@ -162,11 +162,32 @@ void Reverse2(struct Array *arr){
     }
 }
 
+void InsertSort(struct Array *arr , int x){
+    int i=arr->length-1;
+    if (arr -> length == arr->size){
+        return;
+    }
+    while (arr->A[i]>x)
+    {
+        arr -> A[i+1] = arr->A[i];
+        i--;
+    }
+    arr -> A[i+1] = x;
+    arr -> length++;  
+}
 
-
+int isSorted(struct Array arr){
+    int i;
+    for (i=0;i<arr.length-1;i++)
+    {
+        if(arr.A[i]>arr.A[i+1])
+            return 0;
+    }
+    return 1;
+    
+}
 int main(){
     struct Array arr = {{2,3,4,5,6},10,5};
-    printf("%d\n" , RecBinarySearch(arr , 5 , 0 , arr.length));
-    Reverse(&arr);
+    InsertSort(&arr , 23);
     Display(arr);
 }
