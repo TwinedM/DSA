@@ -24,7 +24,7 @@ int main(){
     }
 
 } */
-
+/* 
 int main(){
     string s;
     cin >> s;
@@ -42,4 +42,10 @@ int main(){
         cout << hash[c-'a'] << endl;
 
     }
+    return 0;
+} */
+
+
+int main(){
+    
 }
