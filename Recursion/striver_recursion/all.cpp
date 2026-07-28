@@ -39,6 +39,16 @@ class Solution   {
             }
             return N * Factorial(N-1);
         }
+
+        void reverseArray(vector<int>& arr){    // if i wanna put a damned array in my func then use the vector stl
+            int p1 = 0; // i can also use the reverse function and it works on the same concept as this 
+            int p2 = arr.size()-1;
+            while(p1<p2) {
+                swap(arr[p1],arr[p2]);
+                p1++;
+                p2--;
+            }
+        }
         
 };
 
