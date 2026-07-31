@@ -72,10 +72,84 @@ public:
                 swap(nums[i],nums[j]);
                 j++;
             }
+        }    
+    }
+    int Linear_search(vector<int>&arr , int target){
+        for(int i = 0 ; i < arr.size() ; i++){
+            if (arr[i] == target){
+                return i;
+            }
+        } return -1;
+    }
+
+    vector<int> Union2Arrays(vector<int>& arr1, vector<int>& arr2) {
+    sort(arr1.begin(), arr1.end());
+    sort(arr2.begin(), arr2.end());
+
+    int i = 0, j = 0;
+    vector<int> ans;
+
+    while (i < arr1.size() && j < arr2.size()) {
+        if (arr1[i] < arr2[j]) {
+            if (ans.empty() || ans.back() != arr1[i])
+                ans.push_back(arr1[i]);
+            i++;
+        }
+        else if (arr2[j] < arr1[i]) {
+            if (ans.empty() || ans.back() != arr2[j])
+                ans.push_back(arr2[j]);
+            j++;
+        }
+        else {
+            if (ans.empty() || ans.back() != arr1[i])
+                ans.push_back(arr1[i]);
+            i++;
+            j++;
+        }
+    }
+
+    while (i < arr1.size()) {
+        if (ans.empty() || ans.back() != arr1[i])
+            ans.push_back(arr1[i]);
+        i++;
+    }
+
+    while (j < arr2.size()) {
+        if (ans.empty() || ans.back() != arr2[j])
+            ans.push_back(arr2[j]);
+        j++;
+    }
+
+    return ans;
+
+
+
+    }
+
+    int findmissingnunmber(const vector<int>&arr){
+        int n = arr.size()+1;
+        long long formula = n*1LL*(n+1)/2;
+        long long sum = 0;
+        for(auto it:arr){
+            sum += it;
+        }
+        return formula-sum;
+    }
+
+    int OneStreak(const vector<int>& arr) {
+        int count = 0;
+        int maxCount = 0;
+
+        for (int num : arr) {
+            if (num == 1) {
+                count++;
+                maxCount = max(maxCount, count);
+            } else {
+                count = 0;
+            }
         }
 
-    
-
+        return maxCount;
     }
 };
 
@@ -83,7 +157,12 @@ public:
 
 int main(){
     ArrayStuff ar;
-    vector <int> arr = {2,3,4,5,6};
-    ar.LeftRotatebyK(arr,4);
+    vector <int> arr1 = {2,3,4,5,6};
+    vector <int> arr2 = {2,3,8,2,6};
+
+    vector<int> ans = ar.Union2Arrays(arr1,arr2);
+    for(auto it : ans){
+        cout << it << endl;
+    }
     return 0;
 }
