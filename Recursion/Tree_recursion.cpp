@@ -9,4 +9,4 @@ void fun(int n){
 }
 int main() {
     fun(3);
-}
+}   
